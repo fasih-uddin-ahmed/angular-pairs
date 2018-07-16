@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
         AppComponent,
         HomeComponent,
         AboutComponent,
+        MenuComponent,
     ],
     imports: [
         RouterModule.forRoot(routes),
