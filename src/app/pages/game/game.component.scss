@@ -1,4 +1,6 @@
 .game-wrapper {
+    display: flex;
+    flex-direction: column;
     height: 95.8vh;
     overflow: hidden;
     padding: 0 10px;
@@ -34,6 +36,21 @@
                 color: #f92809;
             }
         }
+    }
+
+    .grid-wrapper {
+        background-color: blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        .grid {
+            height: 300px;
+            width: 360px;
+            background-color: yellow;
+        }
+
     }
 
 }
