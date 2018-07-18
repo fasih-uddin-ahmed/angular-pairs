@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GameComponent } from './pages/game/game.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
         AboutComponent,
         MenuComponent,
         GameComponent,
+        TopBarComponent,
     ],
     imports: [
         RouterModule.forRoot(routes),

@@ -1,0 +1,34 @@
+.top-bar {
+    ul {
+        margin: 0;
+        padding: 0;
+        height: 50px;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        li.menu {
+            margin-left: auto;
+            margin-right: 0px;
+            a {
+                text-align: center;
+                padding: 10px;
+                color: #ff763d;
+                font-weight: bold;
+                text-decoration: none;
+                background-color: #cce2d6;
+                border-bottom: 3px solid #ff763d;
+                border-radius: 5px;
+            }
+        }
+        span {
+            display: inline-block;
+            padding: 0 2px;
+            margin-left: 5px;
+            font-weight: bold;
+            color: #f92809;
+        }
+    }
+}
+
