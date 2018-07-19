@@ -8,6 +8,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { GameComponent } from './pages/game/game.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { GridCellComponent } from './components/grid-cell/grid-cell.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
         MenuComponent,
         GameComponent,
         TopBarComponent,
+        GridCellComponent,
     ],
     imports: [
         RouterModule.forRoot(routes),
