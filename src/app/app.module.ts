@@ -12,6 +12,7 @@ import { GridCellComponent } from './components/grid-cell/grid-cell.component';
 import { GameTimerComponent } from './components/game-timer/game-timer.component';
 
 import { Emoji, EMOJIS } from './emoji/emojis';
+import { EmojiService } from './emoji/emoji.service';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -37,7 +38,7 @@ const routes: Routes = [
     ],
     providers: [
         {provide: Emoji, useValue: EMOJIS},
-
+        [EmojiService]
     ],
     bootstrap: [AppComponent]
 })

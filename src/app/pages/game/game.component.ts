@@ -1,6 +1,6 @@
 import { Inject, Component, OnInit } from '@angular/core';
 
-import { Emoji } from '../../emoji/emojis';
+import { EmojiService } from '../../emoji/emoji.service';
 
 export interface CellData {
     idx: number;
@@ -26,9 +26,8 @@ export class GameComponent implements OnInit {
         hard: 10
     };
 
-    constructor(@Inject(Emoji) private emojis) {
+    constructor(private emojiService: EmojiService) {
         this.populateGridData();
-        console.log(this.gridData);
     }
 
     updateGame(id: number) {
@@ -36,14 +35,15 @@ export class GameComponent implements OnInit {
     }
 
     populateGridData() {
-        this.emojis.slice(0, 12).forEach((val, idx) => {
-            this.gridData.push({
-                idx: idx,
-                textValue: '' + val,
-                flip: false,
-                disabled: false
+        this.emojiService.generateEmojiParis(6)
+            .forEach((val, idx) => {
+                this.gridData.push({
+                    idx: idx,
+                    textValue: val,
+                    flip: false,
+                    disabled: false
+                });
             });
-        });
     }
 
     ngOnInit() {
