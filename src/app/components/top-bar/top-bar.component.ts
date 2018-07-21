@@ -10,7 +10,6 @@ import {
     styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-    @Input() time: string;
     @Input() score: number;
     @Input() homeLink: string;
 
