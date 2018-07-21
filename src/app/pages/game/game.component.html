@@ -3,8 +3,14 @@
     <game-timer></game-timer>
     <div class="grid-wrapper">
         <div class="grid">
-            <div class="cell-easy">
-                <grid-cell></grid-cell>
+            <div class="cell-{{difficulty}}" *ngFor="let cellData of gridData">
+                <grid-cell
+                    [idx]="cellData.idx"
+                    [textValue]="cellData.textValue"
+                    [flip]="cellData.flip"
+                    [disabled]="cellData.disabled"
+                    (cellFlipped)=updateGame($event)
+                ></grid-cell>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, Output, Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'grid-cell',
@@ -6,16 +6,22 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./grid-cell.component.scss']
 })
 export class GridCellComponent implements OnInit {
-    toggle = false;
+    @Input() idx: number;
+    @Input() textValue: string;
+    @Input() flip: boolean;
+    @Input() disabled: boolean; // use attribute binding here.
 
-    constructor() { }
+    @Output() cellFlipped: EventEmitter<number>;
+
+    constructor() {
+        this.cellFlipped = new EventEmitter<number>();
+    }
 
     ngOnInit() {
     }
 
-    toggleFlip() {
-        console.log('toggling cell');
-        this.toggle = !this.toggle;
+    toggle() {
+        this.cellFlipped.emit(this.idx);
     }
 
 }

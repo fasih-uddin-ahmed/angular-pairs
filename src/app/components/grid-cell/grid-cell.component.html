@@ -1,4 +1,4 @@
-<div class="cell" (click)="toggle = !toggle" [class.cell-flipped]="toggle">
-    <div class="face front">Front</div>
-    <div class="face back">Back</div>
+<div class="cell" (click)="toggle()" [class.cell-flipped]="flip">
+    <div class="face front"></div>
+    <div class="face back">{{value}}</div>
 </div>
