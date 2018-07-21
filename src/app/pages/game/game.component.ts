@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Inject, Component, OnInit } from '@angular/core';
+
+import { Emoji } from '../../emoji/emojis';
 
 export interface CellData {
     idx: number;
@@ -13,6 +15,8 @@ export interface CellData {
     styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
+    private gameScore = 0;
+
     private gridData: Array<CellData> = [];
     private difficulty = 'easy';
 
@@ -22,8 +26,9 @@ export class GameComponent implements OnInit {
         hard: 10
     };
 
-    constructor() {
+    constructor(@Inject(Emoji) private emojis) {
         this.populateGridData();
+        console.log(this.gridData);
     }
 
     updateGame(id: number) {
@@ -31,10 +36,9 @@ export class GameComponent implements OnInit {
     }
 
     populateGridData() {
-        const range = Array.from({length: 12}, (_, id) => id);
-        range.forEach(val => {
+        this.emojis.slice(0, 12).forEach((val, idx) => {
             this.gridData.push({
-                idx: val,
+                idx: idx,
                 textValue: '' + val,
                 flip: false,
                 disabled: false

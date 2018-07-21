@@ -1,4 +1,4 @@
 <div class="cell" (click)="toggle()" [class.cell-flipped]="flip">
     <div class="face front"></div>
-    <div class="face back">{{value}}</div>
+    <div class="face back" [innerHtml]="textValue"></div>
 </div>

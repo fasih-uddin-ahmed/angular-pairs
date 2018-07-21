@@ -11,6 +11,8 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { GridCellComponent } from './components/grid-cell/grid-cell.component';
 import { GameTimerComponent } from './components/game-timer/game-timer.component';
 
+import { Emoji, EMOJIS } from './emoji/emojis';
+
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'game', component: GameComponent },
@@ -33,7 +35,10 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
         BrowserModule
     ],
-    providers: [],
+    providers: [
+        {provide: Emoji, useValue: EMOJIS},
+
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
