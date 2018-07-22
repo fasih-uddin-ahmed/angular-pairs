@@ -9,6 +9,7 @@
                     [textValue]="cellData.textValue"
                     [flip]="cellData.flip"
                     [disabled]="cellData.disabled"
+                    [locked]="selection.length === 2"
                     (cellFlipped)=updateGame($event)
                 ></grid-cell>
             </div>

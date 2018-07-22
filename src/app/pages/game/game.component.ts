@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
 
     private gridData: Array<CellData> = [];
     private difficulty = 'easy';
+    private selection: Array<CellData> = [];
 
     private difficultyMap = {
         easy: 6,
@@ -32,6 +33,22 @@ export class GameComponent implements OnInit {
 
     updateGame(id: number) {
         this.gridData[id].flip = true;
+        this.selection.push(this.gridData[id]);
+
+        if (this.selection.length === 2) {
+            setTimeout(() => {
+                const cell2 = this.selection.pop();
+                const cell1 = this.selection.pop();
+                if (cell2.textValue === cell1.textValue) {
+                    console.log('matched');
+                    cell2.disabled = cell1.disabled = true;
+                    this.gameScore += 20;
+                } else {
+                    console.log('not matched');
+                    cell2.flip = cell1.flip = false;
+                }
+            }, 1500);
+        }
     }
 
     populateGridData() {

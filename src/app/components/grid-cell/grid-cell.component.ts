@@ -10,6 +10,7 @@ export class GridCellComponent implements OnInit {
     @Input() textValue: string;
     @Input() flip: boolean;
     @Input() disabled: boolean; // use attribute binding here.
+    @Input() locked: boolean;
 
     @Output() cellFlipped: EventEmitter<number>;
 
@@ -21,6 +22,9 @@ export class GridCellComponent implements OnInit {
     }
 
     toggle() {
+        if (this.disabled || this.flip || this.locked) {
+            return;
+        }
         this.cellFlipped.emit(this.idx);
     }
 
