@@ -1,0 +1,19 @@
+:host {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #5ea5dd4d;
+}
+
+.dialog {
+    height: 80%;
+    width:70%;
+    background-color: #ffe8c6;
+    border-radius: 5px;
+}

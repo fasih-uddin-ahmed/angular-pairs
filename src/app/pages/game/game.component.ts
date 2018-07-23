@@ -27,6 +27,8 @@ export class GameComponent implements OnInit {
     private difficulty = 'easy';
     private selection: Array<CellData> = [];
 
+    private showDialog = false;
+
     private difficultyMap = {
         easy: 6,
         medium: 8,
@@ -81,7 +83,7 @@ export class GameComponent implements OnInit {
     }
 
     showResult() {
-        // show a popup dialog here.
+        this.showDialog = true;
     }
 
     populateGridData() {

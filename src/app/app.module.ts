@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -13,6 +14,7 @@ import { GameTimerComponent } from './components/game-timer/game-timer.component
 
 import { Emoji, EMOJIS } from './emoji/emojis';
 import { EmojiService } from './emoji/emoji.service';
+import { ResultComponent } from './components/result/result.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -31,10 +33,12 @@ const routes: Routes = [
         TopBarComponent,
         GridCellComponent,
         GameTimerComponent,
+        ResultComponent,
     ],
     imports: [
         RouterModule.forRoot(routes),
-        BrowserModule
+        BrowserModule,
+        BrowserAnimationsModule
     ],
     providers: [
         {provide: Emoji, useValue: EMOJIS},
