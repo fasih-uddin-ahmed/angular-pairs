@@ -15,7 +15,13 @@ export interface CellData {
     styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-    private gameScore = 0;
+    private moves = 0;
+
+    private gameScore = {
+        score: 0,
+        bonus: 0,
+        totalScore: 0
+    };
 
     private gridData: Array<CellData> = [];
     private difficulty = 'easy';
@@ -27,6 +33,12 @@ export class GameComponent implements OnInit {
         hard: 10
     };
 
+    private bonus = {
+        easy: 1000,
+        medium: 5000,
+        hard: 10000
+    };
+
     constructor(private emojiService: EmojiService) {
         this.populateGridData();
     }
@@ -36,19 +48,40 @@ export class GameComponent implements OnInit {
         this.selection.push(this.gridData[id]);
 
         if (this.selection.length === 2) {
+            this.moves += 1;
             setTimeout(() => {
                 const cell2 = this.selection.pop();
                 const cell1 = this.selection.pop();
                 if (cell2.textValue === cell1.textValue) {
                     console.log('matched');
                     cell2.disabled = cell1.disabled = true;
-                    this.gameScore += 20;
+                    if ( this.gameOver() ) {
+                        this.processResult();
+                        this.showResult();
+                    }
+                    this.gameScore.score += 20;
                 } else {
                     console.log('not matched');
                     cell2.flip = cell1.flip = false;
                 }
             }, 800);
         }
+    }
+
+    gameOver(): boolean {
+        return this.gridData
+            .filter(cell => cell.disabled !== true).length === 0;
+    }
+
+    processResult() {
+        const numberOfPairs = this.difficultyMap[this.difficulty];
+        const baseBonus = this.bonus[this.difficulty];
+        this.gameScore.bonus = (numberOfPairs * 1.5) / this.moves * baseBonus;
+        this.gameScore.totalScore = this.gameScore.score + this.gameScore.bonus;
+    }
+
+    showResult() {
+        // show a popup dialog here.
     }
 
     populateGridData() {
