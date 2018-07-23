@@ -47,7 +47,7 @@ export class GameComponent implements OnInit {
                     console.log('not matched');
                     cell2.flip = cell1.flip = false;
                 }
-            }, 1500);
+            }, 800);
         }
     }
 
