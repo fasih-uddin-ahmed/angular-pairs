@@ -17,13 +17,13 @@ export interface CellData {
 export class GameComponent implements OnInit {
     private moves = 0;
 
-    private gameScore = {
+    public gameScore = {
         score: 0,
         bonus: 0,
         totalScore: 0
     };
 
-    private gridData: Array<CellData> = [];
+    public gridData: Array<CellData> = [];
     private difficulty = 'easy';
     private selection: Array<CellData> = [];
 
