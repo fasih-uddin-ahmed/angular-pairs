@@ -12,8 +12,48 @@
 }
 
 .dialog {
-    height: 80%;
+    height: 60%;
     width:70%;
+    padding: 20px;
     background-color: #ffe8c6;
     border-radius: 5px;
+}
+
+.message {
+    font-size: 1.8em;
+    text-align: center;
+    color: #f92809;
+}
+
+.result {
+    color: #5ea5dd;
+    border: 1px solid #f7c0a9;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.5em;
+    border-radius: 5px;
+    &-item {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    &-item:last-child {
+        padding-top: 15px;
+        border-top: 1px solid #f7c0a9;
+    }
+}
+
+.controls {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-evenly;
+    a {
+        text-align: center;
+        padding: 10px;
+        color: #ff763d;
+        font-weight: bold;
+        text-decoration: none;
+        background-color: #cce2d6;
+        border-bottom: 3px solid #ff763d;
+        border-radius: 5px;
+    }
 }

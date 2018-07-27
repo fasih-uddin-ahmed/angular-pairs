@@ -56,14 +56,12 @@ export class GameComponent implements OnInit {
                 const cell1 = this.selection.pop();
                 if (cell2.textValue === cell1.textValue) {
                     this.gameScore.score += 20;
-                    console.log('matched');
                     cell2.disabled = cell1.disabled = true;
                     if ( this.gameOver() ) {
                         this.processResult();
                         this.showResult();
                     }
                 } else {
-                    console.log('not matched');
                     cell2.flip = cell1.flip = false;
                 }
             }, 800);
@@ -77,9 +75,9 @@ export class GameComponent implements OnInit {
 
     processResult() {
         const numberOfPairs = this.difficultyMap[this.difficulty];
-        const baseBonus = this.bonus[this.difficulty];
-        this.gameScore.bonus = (numberOfPairs * 1.5) / this.moves * baseBonus;
-        this.gameScore.totalScore = this.gameScore.score + this.gameScore.bonus;
+        const baseBonus = Math.floor((this.bonus[this.difficulty]));
+        this.gameScore.bonus = Math.floor((numberOfPairs * 1.5) / this.moves * baseBonus);
+        this.gameScore.totalScore = Math.floor(this.gameScore.score + this.gameScore.bonus);
     }
 
     showResult() {

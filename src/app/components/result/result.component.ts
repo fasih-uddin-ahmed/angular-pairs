@@ -1,4 +1,4 @@
-import { Input, Component, OnInit } from '@angular/core';
+import { Input, Output, EventEmitter, Component, OnInit } from '@angular/core';
 import {
     trigger,
     style,
@@ -19,11 +19,22 @@ import {
 })
 export class ResultComponent implements OnInit {
     @Input() gameScore: any;
-    @Input() message = 'Congratulations';
+    @Input() message = '🎉 Congratulations 🎉';
+
+    @Output() goHome: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() restart: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    restartGame() {
+        this.restart.emit(true);
+    }
+
+    goToMenu() {
+        this.restart.emit(true);
     }
 
 }

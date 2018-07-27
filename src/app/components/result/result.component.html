@@ -1,11 +1,12 @@
 <div class="dialog" @showResult>
-    <h2>{{message}}</h2>
-    <div>
-        <p>{{ gameScore.score }}</p>
-        <p>{{ gameScore.bonus}}</p>
-        <p>{{ gameScore.totalScore }}</p>
+    <h2 class="message">{{message}}</h2>
+    <div class="result">
+        <p class="result-item"><span>Score:</span><span>{{ gameScore.score }}</span></p>
+        <p class="result-item"><span>Bonus:</span><span>{{ gameScore.bonus }}</span></p>
+        <p class="result-item"><span>Total Score:</span><span>{{ gameScore.totalScore }}</span></p>
     </div>
-    <div>
-
+    <div class="controls">
+        <a (click)="restartGame()">Replay</a>
+        <a (click)="goToMenu()">Main Menu</a>
     </div>
 </div>
